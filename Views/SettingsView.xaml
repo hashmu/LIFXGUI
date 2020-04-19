@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="LIFXGUI.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIFXGUI.Views"
+             xmlns:ViewModels="clr-namespace:LIFXGUI.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <ViewModels:SettingsViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="5">
+            <Label Content="Name:" Margin="5" />
+            <TextBox Margin="5" Text="{Binding Name}"/>
+            <Label Content="Region:" Margin="5" />
+            <TextBox Margin="5" Text="{Binding Region}"/>
+            <Label Content="Token:" Margin="5" />
+            <TextBox Margin="5" Text="{Binding Token}"/>
+            <Button Content="Save" Margin="5" Command="{Binding SaveSettingsCommand}"/>
+        </StackPanel>
+        <Label Grid.Row="1" Margin="5" Content="{Binding Status}" />
+    </Grid>
+</UserControl>
